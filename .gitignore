@@ -1,0 +1,12 @@
+#cat .gitignore
+Library/
+ProjectSettings/
+Temp/
+*.meta
+*.sdf
+*.opensdf
+*.suo
+*.user
+*.obj
+*.exe
+*.aps
