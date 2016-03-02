@@ -1,23 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class AutoRot : MonoBehaviour
 {
     public float speed = 50f;
 
     private Transform _tran;
+    private Rigidbody2D _rb2d;
     private bool _isRotCW = true;
 
 
     void Start()
     {
         _tran = transform;
+        _rb2d = gameObject.GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        Vector3 axis = _isRotCW ? Vector3.forward : Vector3.back;
-        _tran.Rotate(axis, speed * Time.deltaTime);
+        float flag = _isRotCW ? 1 : -1;
+        _rb2d.MoveRotation(_rb2d.rotation + flag * speed * Time.deltaTime);
     }
 
 
