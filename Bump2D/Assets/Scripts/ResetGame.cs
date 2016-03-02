@@ -29,8 +29,13 @@ public class ResetGame : MonoBehaviour
         foreach (KeyValuePair<GameObject, Vector3> kv in _playerPosDict)
         {
             GameObject player = kv.Key;
-            player.SetActive(true);
+
+            Rigidbody2D rb2d = player.GetComponent<Rigidbody2D>();
+            if (null != rb2d)
+                rb2d.Sleep();
+
             player.transform.position = kv.Value;
+            player.SetActive(true);
         }
 
         Time.timeScale = 1;

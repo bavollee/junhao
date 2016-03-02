@@ -2,7 +2,6 @@
 Library/
 ProjectSettings/
 Temp/
-*.meta
 *.sdf
 *.opensdf
 *.suo
